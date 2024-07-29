@@ -20,8 +20,7 @@ app.get('/hello', (c) => {
 
 app.get("/users", async (c) => {
     try {
-        console.log(c.env)
-        const db = drizzle(c.env.DB)
+        const db = drizzle(process.env.DB)
         const results = await db.select().from(users).all()
         return c.json(results)
     } catch (e) {
