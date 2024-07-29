@@ -10,13 +10,17 @@
     "pages:build": "npx @cloudflare/next-on-pages",
     "preview": "npm run pages:build && wrangler pages dev",
     "deploy": "npm run pages:build && wrangler pages deploy",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts"
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
+    "generate": "drizzle-kit generate",
+    "migrate:local": "wrangler d1 migrations apply kanban-app-db --local",
+    "migrate:remote": "wrangler d1 migrations apply kanban-app-db --remote"
   },
   "dependencies": {
+    "drizzle-orm": "^0.32.1",
     "hono": "^4.5.2",
     "next": "14.1.0",
-    "react": "^18",
-    "react-dom": "^18"
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.12.1",
@@ -25,6 +29,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "drizzle-kit": "^0.23.0",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "eslint-plugin-next-on-pages": "^1.12.1",
