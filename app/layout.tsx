@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
-import Header from "./components/layouts/header/Header";
+import Header from "@/components/layouts/header/Header";
 
 const noto_sans_jp = Noto_Sans_JP({ subsets: ["latin"] });
 
@@ -17,9 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={noto_sans_jp.className}>
+      <body className={`${noto_sans_jp.className} min-h-screen transition`}>
         <Header />
-        {children}
+        <main className="px-24 pt-8">{children}</main>
       </body>
     </html>
   );
